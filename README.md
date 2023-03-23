@@ -27,9 +27,9 @@ by Hongbin Miao
 
 > Necessary_encoding: None (i.e treat all features as quantitative)
 
-> Model Performance: 
-rmse_train:   79.47983440541547 
-rmse_test:  82.61487736608815
+> Model Performance:  
+> - rmse_train:   80.00272515096624
+> - rmse_test:  80.56196760757828
 
 > Comment: The current model is decent as the gap between the rmse_train and rmse_test is fairly close. Plus, this model should have a better performance than a single variable regression on a particular feature of the dataset because of the fact that the  model complexity generally increase as the number of linearly independent feature increases.
 ---
@@ -43,11 +43,32 @@ rmse_test:  82.61487736608815
 
 >> polynomial_features on "n_steps", "n_ingredients", "avg_rating",  "calories", "rank": To better capture the nonlinear relationship described in the bullet point above, I created polynomial features for a subset of my features to increase my model complexity
 
+> Final Model Selection: For hyperparameter search, I perform a grid search on the degree of polynomial features range from 2 to 4 for the multivariate regression model described previously
 
+> Final model performance:
+> - rmse_train:   79.68988545133479
+> - rmse_test:  80.2745295431652
+>> - Small improvement over the baseline model on the test set (rmse for the training set and test set have both decreased)
 
 
 ---
 
 ## Fairness Analysis
 
+> Group X: Recipe of Rank 4
 
+> Group Y: Recipe of Rank 5
+
+> Evaluation Metric: Root Mean Square Error
+
+> Null Hypothesis: Our model is fair between recipe of rank 4 and rank 5. (i.e. The RMSE for Rank 4 recipe is the same as for Rank 5 recipe.)
+
+> Alternative Hypothesis: Our model is unfair. (i.e. The RMSE for Rank 4 recipe is greater than that of Rank 5 recipe)
+
+> Test Statistic: Signed difference between the RMSE of the Rank 4 recipe and the RMSE of the Rank 5 recipe
+
+> Significance level: 0.05 
+
+> Resulting p-value: 0.09
+
+> Conclusion: Failed to reject the null 
