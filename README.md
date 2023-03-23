@@ -28,8 +28,8 @@ by Hongbin Miao
 > Necessary_encoding: None (i.e treat all features as quantitative)
 
 > Model Performance:  
-> - rmse_train:   80.00272515096624
-> - rmse_test:  80.56196760757828
+> - rmse_train:   79.81700284197069 
+> - rmse_test:    81.29661132078628
 
 > Comment: The current model is decent as the gap between the rmse_train and rmse_test is fairly close. Plus, this model should have a better performance than a single variable regression on a particular feature of the dataset because of the fact that the  model complexity generally increase as the number of linearly independent feature increases.
 ---
@@ -46,8 +46,8 @@ by Hongbin Miao
 > Final Model Selection: For hyperparameter search, I perform a grid search on the degree of polynomial features range from 2 to 4 for the multivariate regression model described previously
 
 > Final model performance:
-> - rmse_train:   79.68988545133479
-> - rmse_test:  80.2745295431652
+> - rmse_train:   79.51494012568425 
+> - rmse_test:  80.96413993528031
 >> - Small improvement over the baseline model on the test set (rmse for the training set and test set have both decreased)
 
 
@@ -69,6 +69,6 @@ by Hongbin Miao
 
 > Significance level: 0.05 
 
-> Resulting p-value: 0.09
+> Resulting p-value: 0.00
 
-> Conclusion: Failed to reject the null 
+> Conclusion: Reject the null 
